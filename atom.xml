@@ -2,32 +2,32 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://byu-static-analysis-lab.github.io/blog</id>
     <title>BYU Static Analysis Lab Blog</title>
-    <updated>2023-11-06T12:00:00.000Z</updated>
+    <updated>2024-11-06T12:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://byu-static-analysis-lab.github.io/blog"/>
     <subtitle>BYU Static Analysis Lab Blog</subtitle>
-    <icon>https://byu-static-analysis-lab.github.io/blog/img/favicon.svg</icon>
+    <icon>https://byu-static-analysis-lab.github.io/blog/img/byu-pl-logo.png</icon>
     <entry>
-        <title type="html"><![CDATA[Abstracting Abstract Machines]]></title>
+        <title type="html"><![CDATA[Paper - Abstracting Abstract Machines]]></title>
         <id>https://byu-static-analysis-lab.github.io/blog/abstracting-abstract-machines</id>
         <link href="https://byu-static-analysis-lab.github.io/blog/abstracting-abstract-machines"/>
-        <updated>2023-11-06T12:00:00.000Z</updated>
+        <updated>2024-11-06T12:00:00.000Z</updated>
         <summary type="html"><![CDATA[TODO: Writeups about the paper AAM]]></summary>
-        <content type="html"><![CDATA[<p>TODO: Writeups about the paper AAM</p>]]></content>
+        <content type="html"><![CDATA[<p>TODO: Writeups about the paper AAM</p>
+<div class="language-koka codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#bfc7d5;--prism-background-color:#292d3e"><div class="codeBlockContent_biex"><pre tabindex="0" class="prism-code language-koka codeBlock_bY9V thin-scrollbar" style="color:#bfc7d5;background-color:#292d3e"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#bfc7d5"><span class="token keyword" style="font-style:italic">fun</span><span class="token plain"> </span><span class="token function-call function" style="color:rgb(130, 170, 255)">main</span><span class="token punctuation" style="color:rgb(199, 146, 234)">(</span><span class="token punctuation" style="color:rgb(199, 146, 234)">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#bfc7d5"><span class="token plain">  </span><span class="token number" style="color:rgb(247, 140, 108)">1</span><span class="token plain"> </span><span class="token operator" style="color:rgb(137, 221, 255)">+</span><span class="token plain"> </span><span class="token number" style="color:rgb(247, 140, 108)">3</span><br></span></code></pre><div class="buttonGroup__atx"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_eSgA" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_y97N"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_LjdS"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mn>1</mn><mo>+</mo><msup><mn>4</mn><mn>4</mn></msup></mrow><annotation encoding="application/x-tex">1 + 4^4</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7278em;vertical-align:-0.0833em"></span><span class="mord">1</span><span class="mspace" style="margin-right:0.2222em"></span><span class="mbin">+</span><span class="mspace" style="margin-right:0.2222em"></span></span><span class="base"><span class="strut" style="height:0.8141em"></span><span class="mord"><span class="mord">4</span><span class="msupsub"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height:0.8141em"><span style="top:-3.063em;margin-right:0.05em"><span class="pstrut" style="height:2.7em"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">4</span></span></span></span></span></span></span></span></span></span></span></p>]]></content>
         <author>
             <name>Tim Whiting</name>
             <uri>https://github.com/TimWhiting</uri>
         </author>
-        <category label="static-analysis" term="static-analysis"/>
-        <category label="flow-analysis" term="flow-analysis"/>
-        <category label="soundness" term="soundness"/>
-        <category label="completeness" term="completeness"/>
+        <category label="paper" term="paper"/>
+        <category label="control-flow-analysis" term="control-flow-analysis"/>
     </entry>
     <entry>
-        <title type="html"><![CDATA[Control Flow Analysis]]></title>
+        <title type="html"><![CDATA[Topic - Control Flow Analysis]]></title>
         <id>https://byu-static-analysis-lab.github.io/blog/control-flow-analysis</id>
         <link href="https://byu-static-analysis-lab.github.io/blog/control-flow-analysis"/>
-        <updated>2023-11-06T12:00:00.000Z</updated>
+        <updated>2024-11-06T12:00:00.000Z</updated>
         <summary type="html"><![CDATA[This is a Blog for the BYU Static Analysis Lab]]></summary>
         <content type="html"><![CDATA[<p>This is a Blog for the BYU Static Analysis Lab</p>
 <p>Dr. Kimball Germane is our advisor at BYU. <a href="https://kimball.germane.net/" target="_blank" rel="noopener noreferrer">https://kimball.germane.net/</a></p>
@@ -47,6 +47,10 @@ Flow analysis starts with a sound analysis and much of the research focuses on h
         <author>
             <name>Tim Whiting</name>
             <uri>https://github.com/TimWhiting</uri>
+        </author>
+        <author>
+            <name>Koby Lewis</name>
+            <uri>https://github.com/plyb</uri>
         </author>
         <category label="static-analysis" term="static-analysis"/>
         <category label="flow-analysis" term="flow-analysis"/>

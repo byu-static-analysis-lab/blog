@@ -14,7 +14,7 @@ module.exports = async function createConfigAsync() {
   const darkCodeTheme = themes.palenight;
 
   return {
-    title: 'BYU Static Analysis Lab',
+    title: 'BYU Static Analysis / Programming Languages Lab',
     tagline: '',
     favicon: 'img/byu-pl-logo.png',
     deploymentBranch: "gh-pages",
@@ -89,7 +89,7 @@ module.exports = async function createConfigAsync() {
         // Replace with your project's social card
         // image: 'img/docusaurus-social-card.jpg',
         navbar: {
-          title: 'BYU Static Analysis Lab',
+          title: 'BYU Static Analysis / PL Lab',
           logo: {
             alt: 'Lab Logo',
             src: 'img/byu-pl-logo.png',
@@ -97,9 +97,10 @@ module.exports = async function createConfigAsync() {
           items: [
             {
               type: 'docSidebar',
-              sidebarId: 'projectSidebar',
+              sidebarId: 'papersSidebar',
               position: 'left',
-              label: 'Projects',
+              label: 'Docs',
+              to: '/docs'
             },
             { to: '/', label: 'Blog', position: 'left' },
             {
@@ -116,8 +117,8 @@ module.exports = async function createConfigAsync() {
               title: 'Docs',
               items: [
                 {
-                  label: 'Projects',
-                  to: '/docs/intro',
+                  label: 'Docs',
+                  to: '/docs',
                 },
               ],
             },

@@ -128,7 +128,7 @@
     'number': /\b0x[\da-f]+\b|(?:\b\d+(?:\.\d*)?|\B\.\d+)(?:e[+-]?\d+)?/i,
     // /[<>]=?|[!=]=?=?|--?|\+\+?|&&?|\|\|?|[?*/~^%]/,
   };
-  console.log(Prism.languages.koka)
+  // console.log(Prism.languages.koka)
 
   Prism.languages.kk = Prism.languages.koka;
   Prism.languages.kt = Prism.languages.koka;

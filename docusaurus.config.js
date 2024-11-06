@@ -113,7 +113,7 @@ module.exports = async function createConfigAsync() {
               items: [
                 {
                   label: 'Projects',
-                  to: '/projects/intro',
+                  to: '/docs/intro',
                 },
               ],
             },

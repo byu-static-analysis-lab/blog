@@ -4,9 +4,7 @@ This website is built using [Docusaurus 3](https://docusaurus.io/), a modern sta
 
 ### Installation
 
-```
-$ yarn
-```
+Install npm / yarn. 
 
 ### Local Development
 
@@ -26,16 +24,17 @@ This command generates static content into the `build` directory and can be serv
 
 ### Deployment
 
-Using SSH:
-
 ```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+$ yarn deploy
 ```
 
 If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+
+
+### Organization
+
+- blog/authors.yml - is a list of the people in our lab with their contact info
+- blog/* - are blog posts organized by year/month + name - if updated later, update the date
+- docs/intro - contains a short list of the projects going on in the lab
+- docs/papers - contains organized lists of interesting papers split by topic and organized by recommended reading order or other topic-specfic criteria: each paper should have a short 1-2 sentence summary of its contribution to the topic
+

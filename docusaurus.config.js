@@ -1,13 +1,17 @@
 // @ts-check
+
+
 // Note: type annotations allow type checking and IDEs autocompletion
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import remarkGFM from 'remark-gfm';
+import rehypeCitation from 'rehype-citation';
+import {themes} from 'prism-react-renderer';
 
 module.exports = async function createConfigAsync() {
-  const katex = await import('rehype-katex')
-  const math = await import('remark-math')
-  const renderer = await import('prism-react-renderer');
 
-  const lightCodeTheme = renderer.themes.github;
-  const darkCodeTheme = renderer.themes.palenight;
+  const lightCodeTheme = themes.github;
+  const darkCodeTheme = themes.palenight;
 
   return {
     title: 'BYU Static Analysis Lab',
@@ -56,8 +60,8 @@ module.exports = async function createConfigAsync() {
             editUrl:
               'https://github.com/byu-static-analysis-lab/blog/tree/main/',
             routeBasePath: 'docs',
-            remarkPlugins: [math.default],
-            rehypePlugins: [katex.default],
+            remarkPlugins: [remarkMath, remarkGFM],
+            rehypePlugins: [rehypeKatex, [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
           },
           blog: {
             showReadingTime: true,
@@ -68,8 +72,8 @@ module.exports = async function createConfigAsync() {
             // Remove this to remove the "edit this page" links.
             editUrl:
               'https://github.com/byu-static-analysis-lab/blog/tree/main/',
-            remarkPlugins: [math.default],
-            rehypePlugins: [katex.default],
+            remarkPlugins: [remarkMath, remarkGFM],
+            rehypePlugins: [rehypeKatex, [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),

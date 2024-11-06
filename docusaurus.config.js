@@ -12,7 +12,7 @@ module.exports = async function createConfigAsync() {
   return {
     title: 'BYU Static Analysis Lab',
     tagline: '',
-    favicon: 'img/favicon.svg',
+    favicon: 'img/byu-pl-logo.png',
     deploymentBranch: "gh-pages",
     trailingSlash: false,
     // GitHub pages deployment config.
@@ -88,7 +88,7 @@ module.exports = async function createConfigAsync() {
           title: 'BYU Static Analysis Lab',
           logo: {
             alt: 'Lab Logo',
-            src: 'img/favicon.svg',
+            src: 'img/byu-pl-logo.png',
           },
           items: [
             {
@@ -131,7 +131,7 @@ module.exports = async function createConfigAsync() {
               ],
             },
           ],
-          copyright: `Copyright © ${new Date().getFullYear()} Tim Whiting. Built with Docusaurus.`,
+          copyright: `Copyright © ${new Date().getFullYear()} BYU Static Analysis. Built with Docusaurus.`,
         },
         prism: {
           theme: lightCodeTheme,

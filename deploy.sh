@@ -1,1 +1,0 @@
-GH_USER=TimWhiting USE_SSH=true npm run deploy

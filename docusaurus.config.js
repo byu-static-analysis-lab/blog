@@ -61,7 +61,7 @@ module.exports = async function createConfigAsync() {
               'https://github.com/byu-static-analysis-lab/blog/tree/main/',
             routeBasePath: 'docs',
             remarkPlugins: [remarkMath, remarkGFM],
-            rehypePlugins: [rehypeKatex, [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
+            rehypePlugins: [[rehypeKatex, {fleqn: true}], [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
           },
           blog: {
             showReadingTime: true,
@@ -73,7 +73,7 @@ module.exports = async function createConfigAsync() {
             editUrl:
               'https://github.com/byu-static-analysis-lab/blog/tree/main/',
             remarkPlugins: [remarkMath, remarkGFM],
-            rehypePlugins: [rehypeKatex, [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
+            rehypePlugins: [[rehypeKatex, {fleqn: true}], [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
           },
           theme: {
             customCss: require.resolve('./src/css/custom.css'),

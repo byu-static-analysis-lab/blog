@@ -4,7 +4,7 @@ title: Topic - Abstract Interpretation
 date: 2024-11-07T12:00
 authors:
   - koby
-tags: [static-analysis, abstract-interpretation]
+tags: [static analysis, abstract interpretation]
 ---
 
 Abstract interpretation is a very common technique for analyzing programs. This is a quick primer on the topic.

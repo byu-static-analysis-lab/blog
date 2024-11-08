@@ -4,8 +4,7 @@ title: Topic - Control Flow Analysis
 date: 2024-11-06T12:00
 authors: 
   - tim
-  - koby
-tags: [static-analysis, flow-analysis, soundness, completeness, Demand-CFA]
+tags: [static analysis, flow analysis, soundness, completeness, Demand CFA]
 ---
 
 This is a Blog for the BYU Static Analysis Lab

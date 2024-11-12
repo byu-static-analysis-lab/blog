@@ -8,7 +8,7 @@ tags: [paper, abstract interpreters, reduction semantics]
 ---
 
 Refocusing in Reduction Semantics [@danvy_refocusing_2004] presents a way to go from
-a reduction semantics to an recfocused pre-abstract machine, and eventually to an abstract machine. The paper is a good read after being introduced to reduction semantics and abstract machines, and has a few simple walkthroughs of how to actually apply the theory.
+a reduction semantics to an refocused pre-abstract machine, and eventually to an abstract machine. The paper is a good read after being introduced to reduction semantics and abstract machines, and has a few simple walkthroughs of how to actually apply the theory.
 
 <!--truncate-->
 

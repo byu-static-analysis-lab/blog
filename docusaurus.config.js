@@ -100,7 +100,6 @@ module.exports = async function createConfigAsync() {
               sidebarId: 'papersSidebar',
               position: 'left',
               label: 'Docs',
-              to: '/docs'
             },
             { to: '/', label: 'Blog', position: 'left' },
             {
@@ -113,22 +112,22 @@ module.exports = async function createConfigAsync() {
         footer: {
           style: 'dark',
           links: [
-            {
-              title: 'Docs',
-              items: [
-                {
-                  label: 'Docs',
-                  to: '/docs',
-                },
-              ],
-            },
+            // {
+            //   title: 'Docs',
+            //   items: [
+            //     {
+            //       label: 'Docs',
+            //       to: '/docs',
+            //     },
+            //   ],
+            // },
             {
               title: 'More',
               items: [
-                {
-                  label: 'Blog',
-                  to: '/',
-                },
+                // {
+                //   label: 'Blog',
+                //   to: '/',
+                // },
                 {
                   label: 'GitHub',
                   href: 'https://github.com/byu-static-analysis-lab/blog',

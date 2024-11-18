@@ -2,11 +2,46 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://byu-static-analysis-lab.github.io/blog</id>
     <title>BYU Static Analysis / Programming Languages Lab Blog</title>
-    <updated>2024-11-08T12:00:00.000Z</updated>
+    <updated>2024-11-18T12:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://byu-static-analysis-lab.github.io/blog"/>
     <subtitle>BYU Static Analysis / Programming Languages Lab Blog</subtitle>
     <icon>https://byu-static-analysis-lab.github.io/blog/img/byu-pl-logo.png</icon>
+    <entry>
+        <title type="html"><![CDATA[Paper - Database-Aware Program Optimization via Static Analysis]]></title>
+        <id>https://byu-static-analysis-lab.github.io/blog/db-aware-program-optimization</id>
+        <link href="https://byu-static-analysis-lab.github.io/blog/db-aware-program-optimization"/>
+        <updated>2024-11-18T12:00:00.000Z</updated>
+        <summary type="html"><![CDATA[A lot of developer work on database applications goes into making sure the interaction between the application layer and the database layer is efficient. In my experience in industry, this work is mostly done manually, and in an ad-hoc fashion. [@ramachandra2014database] give an account about some ways this can be done manually.]]></summary>
+        <content type="html"><![CDATA[<p>A lot of developer work on database applications goes into making sure the interaction between the application layer and the database layer is efficient. In my experience in industry, this work is mostly done manually, and in an ad-hoc fashion. <span id="citation--ramachandra2014database--1">(Ramachandra and Guravannavar 2014)</span> give an account about some ways this can be done manually.</p>
+<p>There are # major methods they talk about in the paper. They are as follows:</p>
+<ol>
+<li>Set-oriented query execution: this technique gathers multiple queries together (they specifically reference queries made in a loop) and combines them into a single query whose results can be broken up and used as if they were single queries. Their technique relies on a program transformation which breaks the loop into two loops, one of which adds the individual queries to the batch, and one which consumes the results of that batch.</li>
+<li>Asynchronous Prefetching: this technique tries to move queries as early as possible in the program, so that you can overlap the network latency and computation at the database layer with the computation on the application layer. Optionally, you can batch these queries using technique 1. They also discuss ways to do prefetching in more complicated scenarios, such as when the query is made inside nested procedures.</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="kobys-thoughts">Koby's thoughts<a href="https://byu-static-analysis-lab.github.io/blog/db-aware-program-optimization#kobys-thoughts" class="hash-link" aria-label="Direct link to Koby's thoughts" title="Direct link to Koby's thoughts">​</a></h2>
+<p>This paper identifies precisely the problem that I've been thinking about, which is how to optimize programs when you know things both about the program and the database schema. More generally, if you have some way to combine api calls that can reduce overhead of some kind, can we find an automated way to do so? However, the paper relies on two broad techniques to solve this: program transformations and (database-aware) compiler optimizations, both of which I see problems with.</p>
+<p>While, generally speaking, program transformations may be alright, I feel that those presented in the paper, such as the loop fission technique that is at the core of almost everything they discuss, are very invasive. They would end up producing code that is difficult to read and maintain (especially if multiple devs implement separate loop fissions, leading to nested loops). The authors themselves point out that this is especially a problem when dealing with queries made in nested procedures. (On the topic of nested procedures, they don't describe the full technique, but instead refer to an earlier paper, which I am curious to read).</p>
+<p>Compiler optimizations are also risky because they make implicit a very important aspect of the program, the algorithms that determine its speed. If these techniques are not universally (or nearly universally) applicable, it would be easy for an inexperienced developer to make a change that causes a serious performance regression without ever realizing. Why am I worried about this and not other compiler optimizations? My ideas are not fully formed on this yet, but I think one aspect is just how important things like network latency are to the performance of an application.</p>
+<p>So an ideal technique for me would be one that leaves the code mostly intact as the developer wrote it (which, hopefully, would mean it would be more readable and maintainable), but which also has an explicit reference at some point to how the optimization is taking place. It would also be very difficult to accidentally cause a serious performance regression in the technique, or at least there would be a way to warn the developer if they have.</p>
+<p>A few thoughts about where to go from here:</p>
+<ol>
+<li>CFA seems like a promising technique to help with the nested procedure problem, but I'd like to read more about their solution first.</li>
+<li>Algebraic effects could provide a really solid way to provide for batching while still leaving a trace in the code that isn't too intrusive. However, I can't think of how you could do prefetching using algebraic effects.</li>
+<li>The paper mentions that their techniques could potentially be broadened to other domains where significant overhead exists besides databases. It could be interesting to explore a technique that could generalize to all of these.</li>
+</ol>
+<div id="refs" class="references csl-bib-body">
+  <div class="csl-entry" id="bib-ramachandra2014database">Karthik Ramachandra, and Ravindra Guravannavar. “Database-Aware Program Optimization via Static Analysis.” <i>IEEE Data Eng. Bull.</i> 37 (1). Citeseer: 60–69. 2014.</div>
+</div>]]></content>
+        <author>
+            <name>Koby Lewis</name>
+            <uri>https://github.com/plyb</uri>
+        </author>
+        <category label="paper" term="paper"/>
+        <category label="optimization" term="optimization"/>
+        <category label="database" term="database"/>
+        <category label="api coalescing" term="api coalescing"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Paper - A General Fine-Grained Reduction Theory for Effect Handlers]]></title>
         <id>https://byu-static-analysis-lab.github.io/blog/fine-grained-reduction-theory-for-effect-handlers</id>
@@ -69,7 +104,7 @@ evaluation changes depending on whether it is in the context of one or more hand
         <updated>2024-11-08T12:00:00.000Z</updated>
         <summary type="html"><![CDATA[Refocusing in Reduction Semantics [@danvyrefocusing2004] presents a way to go from]]></summary>
         <content type="html"><![CDATA[<p>Refocusing in Reduction Semantics <span id="citation--danvy_refocusing_2004--1">(Danvy and Nielsen Nov. 2004)</span> presents a way to go from
-a reduction semantics to an recfocused pre-abstract machine, and eventually to an abstract machine. The paper is a good read after being introduced to reduction semantics and abstract machines, and has a few simple walkthroughs of how to actually apply the theory.</p>
+a reduction semantics to an refocused pre-abstract machine, and eventually to an abstract machine. The paper is a good read after being introduced to reduction semantics and abstract machines, and has a few simple walkthroughs of how to actually apply the theory.</p>
 <p>The goal of this paper is to systematize the development of abstract machines based on
 a reduction semantics.</p>
 <h3 class="anchor anchorWithStickyNavbar_LWe7" id="reduction-semantics">Reduction Semantics<a href="https://byu-static-analysis-lab.github.io/blog/refocusing-reduction#reduction-semantics" class="hash-link" aria-label="Direct link to Reduction Semantics" title="Direct link to Reduction Semantics">​</a></h3>

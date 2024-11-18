@@ -11,7 +11,7 @@ A lot of developer work on database applications goes into making sure the inter
 
 <!--truncate-->
 
-There are # major methods they talk about in the paper. They are as follows:
+There are two major methods they talk about in the paper. They are as follows:
 1. Set-oriented query execution: this technique gathers multiple queries together (they specifically reference queries made in a loop) and combines them into a single query whose results can be broken up and used as if they were single queries. Their technique relies on a program transformation which breaks the loop into two loops, one of which adds the individual queries to the batch, and one which consumes the results of that batch.
 2. Asynchronous Prefetching: this technique tries to move queries as early as possible in the program, so that you can overlap the network latency and computation at the database layer with the computation on the application layer. Optionally, you can batch these queries using technique 1. They also discuss ways to do prefetching in more complicated scenarios, such as when the query is made inside nested procedures.
 

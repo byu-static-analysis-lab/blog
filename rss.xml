@@ -4,10 +4,45 @@
         <title>BYU Static Analysis / Programming Languages Lab Blog</title>
         <link>https://byu-static-analysis-lab.github.io/blog</link>
         <description>BYU Static Analysis / Programming Languages Lab Blog</description>
-        <lastBuildDate>Mon, 18 Nov 2024 12:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 22 Nov 2024 12:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
+        <item>
+            <title><![CDATA[Paper - Optimizing Database-Backed Applications with Query Synthesis]]></title>
+            <link>https://byu-static-analysis-lab.github.io/blog/query-by-synthesis</link>
+            <guid>https://byu-static-analysis-lab.github.io/blog/query-by-synthesis</guid>
+            <pubDate>Fri, 22 Nov 2024 12:00:00 GMT</pubDate>
+            <description><![CDATA[Query-by-Synthesis (QBS) [@cheung2013optimizing] is a system developed to optimize database applications via static analysis. It is a very powerful system that, in the end, converts sections of code that would otherwise perform relational-query-like operations on the application server to a semantically equivalent SQL query that can be run on the DBMS.]]></description>
+            <content:encoded><![CDATA[<p>Query-by-Synthesis (QBS) <span id="citation--cheung2013optimizing--1">(Cheung et al. 2013)</span> is a system developed to optimize database applications via static analysis. It is a very powerful system that, in the end, converts sections of code that would otherwise perform relational-query-like operations on the application server to a semantically equivalent SQL query that can be run on the DBMS.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="summary">Summary<a href="https://byu-static-analysis-lab.github.io/blog/query-by-synthesis#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary">​</a></h2>
+<p>The general process they use is:</p>
+<ol>
+<li>Convert the code (specifically Java, although there is nothing really Java specific about this) to a kernel language, which is chunked into optimizable sections.</li>
+<li>Based on the kernel language, create a set of Hoare-logic post conditions and invariants that must hold after each section of code. This is done in terms of a theory they develop, which is very similar to relational algebra, except that it is defined in terms of ordered lists instead of sets.</li>
+<li>Create queries that satisfy the post conditions.</li>
+</ol>
+<p>Seems simple enough, but that second step is doing a lot of heavy lifting, both in theoretic complexity and computation time. They find that an analysis like this can dramatically increase throughput and decrease latency, even on code that has already had significant manual optimizations performed on it.</p>
+<p>There are some limitations:</p>
+<ul>
+<li>The analysis cannot handle all Java features. For instance, if there is a side effect, that forces a "break" in the analysis. On either side of the side effect, optimizations can be performed, but no code including a side effect can be optimized. (Note: for the purposes of the paper, it seems like they were not including some kinds of state as a side effect)</li>
+<li>The second step involves generation of loop invariants. Since this is an undecidable problem, there are some programs on which this analysis will time out.</li>
+<li>This analysis takes a significant amount of time (they mention up to ten minutes). While they didn't talk about what exactly took so long, my best guess is the fact that there is a constraint solver substep of step 2.</li>
+<li>Even some generally used relational operations (<code>unique</code> and <code>append</code>) are unsupported in their analysis</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="kobys-thoughts">Koby's thoughts<a href="https://byu-static-analysis-lab.github.io/blog/query-by-synthesis#kobys-thoughts" class="hash-link" aria-label="Direct link to Koby's thoughts" title="Direct link to Koby's thoughts">​</a></h2>
+<p>While this paper presents a very powerful system, it still suffers from the same issues I mentioned in my post on <a href="https://byu-static-analysis-lab.github.io/blog/db-aware-program-optimization">Ramachandra et. al.'s work</a>: namely that the optimizations done by this analysis do not leave any trace in the code, while also not being universal. This puts a developer at risk of unknowingly causing significant performance regressions. I'm also pretty disappointed in the time it takes to run. Ideally, we would have some kind of a tool that could run at interactive latencies.</p>
+<p>One thing that I've found interesting reading this paper (and a couple of others) is that there seems to be a focus on moving certain kinds of computation to the DBMS to take advantage of things like indexing and optimized query plans. While this is a great reason to do so, equally important in my mind is simply reducing the number of round-trips between the application server and database server. QBS <em>does</em> accomplish this, but it seems like it mostly does it incidentally, or at least very little attention is payed to it in the paper.</p>
+<div id="refs" class="references csl-bib-body">
+  <div class="csl-entry" id="bib-cheung2013optimizing">Alvin Cheung, Armando Solar-Lezama, and Samuel Madden. “Optimizing Database-Backed Applications with Query Synthesis.” <i>ACM SIGPLAN Notices</i> 48 (6). ACM New York, NY, USA: 3–14. 2013.</div>
+</div>]]></content:encoded>
+            <category>paper</category>
+            <category>api coalescing</category>
+            <category>databases</category>
+            <category>optimization</category>
+            <category>static analysis</category>
+            <category>program transformation</category>
+        </item>
         <item>
             <title><![CDATA[Paper - Database-Aware Program Optimization via Static Analysis]]></title>
             <link>https://byu-static-analysis-lab.github.io/blog/db-aware-program-optimization</link>

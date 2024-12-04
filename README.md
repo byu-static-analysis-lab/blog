@@ -38,3 +38,12 @@ If you are using GitHub pages for hosting, this command is a convenient way to b
 - docs/intro - contains a short list of the projects going on in the lab
 - docs/papers - contains organized lists of interesting papers split by topic and organized by recommended reading order or other topic-specfic criteria: each paper should have a short 1-2 sentence summary of its contribution to the topic
 
+
+### TODO
+
+- [ ] Abstract Domains / Designing Abstract Domains
+- [ ] Context irrelevance
+- [ ] Store Widening
+- [ ] Fixpoint Iteration Strategies
+- [ ] Mixing Flow Context and Path sensitivity
+- [ ] Finish AAM 

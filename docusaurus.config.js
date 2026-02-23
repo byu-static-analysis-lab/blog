@@ -55,10 +55,6 @@ module.exports = async function createConfigAsync() {
         ({
           docs: {
             sidebarPath: require.resolve('./sidebars.js'),
-            // Please change this to your repo.
-            // Remove this to remove the "edit this page" links.
-            editUrl:
-              'https://github.com/byu-static-analysis-lab/blog/tree/main/',
             routeBasePath: 'docs',
             remarkPlugins: [remarkMath, remarkGFM],
             rehypePlugins: [[rehypeKatex, {fleqn: true}], [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
@@ -68,10 +64,6 @@ module.exports = async function createConfigAsync() {
             blogSidebarCount: 'ALL',
             blogSidebarTitle: 'All posts',
             routeBasePath: '/',
-            // Please change this to your repo.
-            // Remove this to remove the "edit this page" links.
-            editUrl:
-              'https://github.com/byu-static-analysis-lab/blog/tree/main/',
             remarkPlugins: [remarkMath, remarkGFM],
             rehypePlugins: [[rehypeKatex, {fleqn: true}], [rehypeCitation, { bibliography: 'static/papers.bib', csl: 'static/natural.csl' }]],
           },

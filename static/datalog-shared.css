@@ -1,0 +1,542 @@
+/* ═══════════════════════════════════════════════════════════════════
+   Datalog Visualizer — Shared Styles (Light Mode)
+   Import this once on the blog page, then embed any widget.
+═══════════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Sans:wght@400;500&display=swap');
+
+:root {
+  --dv-bg:          #faf9f7;
+  --dv-bg2:         #f3f1ee;
+  --dv-bg3:         #ece9e4;
+  --dv-bg4:         #e4e0d8;
+  --dv-border:      #d6d1c8;
+  --dv-border2:     #c4bdb0;
+
+  --dv-text:        #2a2520;
+  --dv-text-dim:    #8a8078;
+  --dv-text-mid:    #5a5248;
+  --dv-text-bright: #1a1510;
+
+  --dv-amber:       #b85c00;
+  --dv-amber-bg:    #fff3e0;
+  --dv-amber-border:#e8a020;
+
+  --dv-green:       #1a7a2e;
+  --dv-green-bg:    #e8f5eb;
+  --dv-green-border:#4caf5a;
+
+  --dv-blue:        #1558a8;
+  --dv-blue-bg:     #e8f0fc;
+  --dv-blue-border: #4488d8;
+
+  --dv-red:         #c0392b;
+  --dv-red-bg:      #fdecea;
+  --dv-red-border:  #e57373;
+
+  --dv-purple:      #6a28b8;
+  --dv-purple-bg:   #f3eaff;
+  --dv-purple-border:#a070e0;
+}
+
+/* ── Widget shell ──────────────────────────────────────────────── */
+.dv-widget {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--dv-text);
+  background: var(--dv-bg);
+  border: 1px solid var(--dv-border);
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.06), 0 0 0 1px rgba(0,0,0,0.03);
+}
+
+.dv-widget * { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ── Widget header ─────────────────────────────────────────────── */
+.dv-widget-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 16px;
+  background: var(--dv-bg3);
+  border-bottom: 1px solid var(--dv-border);
+}
+
+.dv-widget-title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dv-text-dim);
+}
+
+.dv-widget-subtitle {
+  font-size: 11px;
+  color: var(--dv-text-dim);
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+/* ── Panel ─────────────────────────────────────────────────────── */
+.dv-panel {
+  background: var(--dv-bg);
+  border: 1px solid var(--dv-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.dv-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 12px;
+  background: var(--dv-bg2);
+  border-bottom: 1px solid var(--dv-border);
+}
+
+.dv-panel-title {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dv-text-dim);
+}
+
+.dv-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+  letter-spacing: 0.03em;
+}
+
+.dv-badge-amber  { background: var(--dv-amber-bg);  color: var(--dv-amber);  border: 1px solid var(--dv-amber-border); }
+.dv-badge-green  { background: var(--dv-green-bg);  color: var(--dv-green);  border: 1px solid var(--dv-green-border); }
+.dv-badge-blue   { background: var(--dv-blue-bg);   color: var(--dv-blue);   border: 1px solid var(--dv-blue-border); }
+.dv-badge-red    { background: var(--dv-red-bg);    color: var(--dv-red);    border: 1px solid var(--dv-red-border); }
+.dv-badge-purple { background: var(--dv-purple-bg); color: var(--dv-purple); border: 1px solid var(--dv-purple-border); }
+
+/* ── Editor ────────────────────────────────────────────────────── */
+.dv-editor-wrap {
+  position: relative;
+  background: var(--dv-bg);
+  border: 1px solid var(--dv-border);
+  border-radius: 4px;
+}
+
+.dv-editor-wrap textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  resize: vertical;
+  color: var(--dv-text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  line-height: 1.75;
+  padding: 10px 12px;
+  caret-color: var(--dv-amber);
+  min-height: 120px;
+}
+
+.dv-editor-label {
+  position: absolute;
+  top: 0; right: 0;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--dv-text-dim);
+  padding: 3px 7px;
+  background: var(--dv-bg3);
+  border-bottom-left-radius: 3px;
+  border-left: 1px solid var(--dv-border);
+  border-bottom: 1px solid var(--dv-border);
+}
+
+/* ── Controls row ──────────────────────────────────────────────── */
+.dv-controls {
+  display: flex;
+  gap: 6px;
+  align-items: stretch;
+  margin-top: 8px;
+  flex-wrap: wrap;
+}
+
+.dv-controls input {
+  flex: 1;
+  min-width: 120px;
+  background: var(--dv-bg);
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  color: var(--dv-text);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 12px;
+  padding: 6px 10px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.dv-controls input:focus { border-color: var(--dv-amber-border); }
+.dv-controls input::placeholder { color: var(--dv-text-dim); }
+
+.dv-btn {
+  background: var(--dv-bg2);
+  border: 1px solid var(--dv-border2);
+  border-radius: 3px;
+  color: var(--dv-text-mid);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.dv-btn:hover { border-color: var(--dv-border2); background: var(--dv-bg3); color: var(--dv-text); }
+
+.dv-btn-primary {
+  background: var(--dv-amber-bg);
+  border: 1px solid var(--dv-amber-border);
+  color: var(--dv-amber);
+}
+
+.dv-btn-primary:hover { background: var(--dv-amber); color: #fff; border-color: var(--dv-amber); }
+
+/* ── Error bar ─────────────────────────────────────────────────── */
+.dv-error {
+  background: var(--dv-red-bg);
+  border: 1px solid var(--dv-red-border);
+  border-radius: 3px;
+  color: var(--dv-red);
+  font-size: 11px;
+  padding: 6px 10px;
+  margin-top: 6px;
+  display: none;
+}
+.dv-error.visible { display: block; }
+
+/* ── Step controls ─────────────────────────────────────────────── */
+.dv-step-controls {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-top: 1px solid var(--dv-border);
+  background: var(--dv-bg2);
+}
+
+.dv-ctrl {
+  background: var(--dv-bg);
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  color: var(--dv-text-mid);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  padding: 3px 10px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+
+.dv-ctrl:hover { border-color: var(--dv-amber-border); color: var(--dv-amber); }
+.dv-ctrl:disabled { opacity: 0.3; cursor: default; }
+.dv-ctrl:disabled:hover { border-color: var(--dv-border); color: var(--dv-text-mid); }
+
+.dv-step-counter {
+  font-size: 11px;
+  color: var(--dv-text-dim);
+  margin-left: auto;
+}
+.dv-step-counter b { color: var(--dv-text); font-weight: 500; }
+
+/* ── Progress bar ──────────────────────────────────────────────── */
+.dv-progress {
+  height: 2px;
+  background: var(--dv-border);
+}
+.dv-progress-fill {
+  height: 100%;
+  background: var(--dv-amber-border);
+  transition: width 0.18s ease;
+}
+
+/* ── Relation blocks ───────────────────────────────────────────── */
+.dv-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+@media (max-width: 600px) { .dv-two-col { grid-template-columns: 1fr; } }
+
+.dv-relation {
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.dv-relation-name {
+  background: var(--dv-bg3);
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--dv-blue);
+  border-bottom: 1px solid var(--dv-border);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dv-relation-tuples {
+  padding: 6px 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  min-height: 30px;
+  background: var(--dv-bg);
+}
+
+.dv-tuple {
+  background: var(--dv-bg2);
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 11px;
+  color: var(--dv-text);
+  white-space: nowrap;
+}
+
+.dv-tuple.dv-new {
+  background: var(--dv-green-bg);
+  border-color: var(--dv-green-border);
+  color: var(--dv-green);
+  animation: dv-pop 0.22s ease;
+}
+
+.dv-tuple.dv-highlight {
+  background: var(--dv-amber-bg);
+  border-color: var(--dv-amber-border);
+  color: var(--dv-amber);
+}
+
+.dv-empty { font-size: 11px; color: var(--dv-text-dim); font-style: italic; }
+
+.dv-delta-pill {
+  font-size: 9px;
+  font-weight: 600;
+  padding: 0 5px;
+  border-radius: 8px;
+  margin-left: auto;
+  background: var(--dv-green-bg);
+  color: var(--dv-green);
+  border: 1px solid var(--dv-green-border);
+}
+.dv-delta-pill.zero {
+  background: transparent;
+  color: var(--dv-text-dim);
+  border-color: transparent;
+}
+
+@keyframes dv-pop {
+  from { transform: scale(0.82); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+/* ── Step log ──────────────────────────────────────────────────── */
+.dv-log {
+  height: 160px;
+  overflow-y: auto;
+  padding: 5px 12px;
+  font-size: 11px;
+  line-height: 1.85;
+  background: var(--dv-bg);
+}
+.dv-log::-webkit-scrollbar { width: 4px; }
+.dv-log::-webkit-scrollbar-thumb { background: var(--dv-border2); border-radius: 2px; }
+
+.dv-log-entry { display: flex; gap: 8px; padding: 1px 3px; border-radius: 2px; }
+.dv-log-entry.dv-current { background: rgba(184,92,0,0.06); }
+.dv-log-idx  { color: var(--dv-text-dim); min-width: 22px; font-size: 10px; }
+.dv-log-type { min-width: 80px; font-weight: 600; font-size: 10px; letter-spacing: 0.04em; }
+.dv-log-msg  { color: var(--dv-text); flex: 1; }
+
+/* type colours — light mode */
+.dvt-iterstart { color: var(--dv-amber); }
+.dvt-iterend   { color: var(--dv-text-dim); }
+.dvt-ruletry   { color: var(--dv-purple); }
+.dvt-unifok    { color: var(--dv-green); }
+.dvt-unifail   { color: var(--dv-red); }
+.dvt-derivenew { color: var(--dv-green); font-weight: 600; }
+.dvt-derivedup { color: var(--dv-text-dim); }
+.dvt-demand    { color: var(--dv-blue); }
+.dvt-memohit   { color: var(--dv-green); }
+.dvt-derive    { color: var(--dv-text-mid); }
+.dvt-done      { color: var(--dv-text-dim); }
+.dvt-call      { color: var(--dv-blue); }
+.dvt-return    { color: var(--dv-green); }
+.dvt-fail      { color: var(--dv-red); }
+.dvt-try       { color: var(--dv-purple); }
+.dvt-shift     { color: var(--dv-amber); }  /* kept for backwards compat if anyone uses it */
+.dvt-consume   { color: var(--dv-amber); }
+
+/* ── Demand / resolution tree ──────────────────────────────────── */
+.dv-tree {
+  font-size: 11px;
+  padding: 8px 12px;
+  min-height: 60px;
+  overflow-y: auto;
+  max-height: 300px;
+  background: var(--dv-bg);
+}
+.dv-tree::-webkit-scrollbar { width: 4px; }
+.dv-tree::-webkit-scrollbar-thumb { background: var(--dv-border2); }
+
+.dv-tree-node {
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  padding: 2px 3px;
+  border-radius: 2px;
+  animation: dv-fade 0.15s ease;
+}
+@keyframes dv-fade { from { opacity:0; transform: translateX(-3px); } to { opacity:1; } }
+.dv-tree-node.dv-current-node { background: rgba(184,92,0,0.06); }
+
+.dv-dn-indent { color: var(--dv-border2); white-space: pre; font-size: 10px; }
+.dv-dn-icon   { min-width: 13px; text-align: center; font-size: 10px; color: var(--dv-text-dim); }
+.dv-dn-label  { color: var(--dv-text); flex: 1; }
+
+.dv-tree-node.type-demand   .dv-dn-label { color: var(--dv-blue); }
+.dv-tree-node.type-memo-hit .dv-dn-label { color: var(--dv-green); }
+.dv-tree-node.type-derive   .dv-dn-label { color: var(--dv-text-bright); font-weight: 500; }
+.dv-tree-node.type-done     .dv-dn-label { color: var(--dv-text-dim); font-style: italic; }
+.dv-tree-node.type-call     .dv-dn-label { color: var(--dv-blue); }
+.dv-tree-node.type-return   .dv-dn-label { color: var(--dv-green); }
+.dv-tree-node.type-fail     .dv-dn-label { color: var(--dv-red); }
+.dv-tree-node.type-try      .dv-dn-label { color: var(--dv-purple); }
+.dv-tree-node.type-shift    .dv-dn-label { color: var(--dv-amber); }  /* backwards compat */
+.dv-tree-node.type-consume  .dv-dn-label { color: var(--dv-amber); }
+
+/* ── Rule box (naive) ──────────────────────────────────────────── */
+.dv-rule-box {
+  background: var(--dv-bg2);
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: 12px;
+  min-height: 38px;
+  line-height: 1.6;
+}
+.dv-rule-head   { color: var(--dv-amber); font-weight: 600; }
+.dv-rule-neck   { color: var(--dv-text-dim); }
+.dv-rule-atom   { color: var(--dv-blue); }
+.dv-rule-atom.dv-atom-active { color: var(--dv-text-bright); background: rgba(68,136,216,0.1); border-radius: 2px; padding: 0 3px; }
+.dv-rule-atom.dv-atom-done   { color: var(--dv-text-dim); text-decoration: line-through; }
+.dv-rule-sep    { color: var(--dv-text-dim); }
+.dv-empty-label { color: var(--dv-text-dim); font-style: italic; font-size: 11px; }
+
+/* ── Binding chips ─────────────────────────────────────────────── */
+.dv-bindings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 6px 12px;
+  min-height: 30px;
+  border-top: 1px solid var(--dv-border);
+  background: var(--dv-bg);
+}
+.dv-binding {
+  background: var(--dv-bg2);
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  padding: 1px 7px;
+  font-size: 11px;
+  color: var(--dv-text);
+}
+.dv-binding.dv-fresh {
+  background: var(--dv-amber-bg);
+  border-color: var(--dv-amber-border);
+  color: var(--dv-amber);
+  animation: dv-pop 0.2s ease;
+}
+
+/* ── KV list (memo / facts) ────────────────────────────────────── */
+.dv-kv { padding: 8px 12px; font-size: 11px; min-height: 40px; }
+.dv-kv-row { display: flex; gap: 6px; padding: 2px 0; flex-wrap: wrap; align-items: center; }
+.dv-kv-key { color: var(--dv-blue); min-width: 120px; }
+.dv-kv-val { color: var(--dv-text); }
+
+/* ── Iteration history ─────────────────────────────────────────── */
+.dv-iter-chip {
+  font-size: 11px;
+  padding: 5px 12px;
+  border-top: 1px solid var(--dv-border);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+.dv-iter-chip:first-child { border-top: none; }
+.dv-iter-chip:hover { background: var(--dv-bg3); }
+.dv-iter-chip.dv-active-iter { background: var(--dv-amber-bg); color: var(--dv-amber); }
+
+/* ── Token strip (parser) ──────────────────────────────────────── */
+.dv-token-strip {
+  display: flex;
+  gap: 3px;
+  flex-wrap: wrap;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--dv-border);
+  align-items: center;
+  background: var(--dv-bg);
+}
+.dv-token {
+  padding: 2px 9px;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--dv-border);
+  background: var(--dv-bg2);
+  color: var(--dv-text);
+  transition: all 0.12s;
+}
+.dv-token.dv-consumed { opacity: 0.3; }
+.dv-token.dv-current  { border-color: var(--dv-amber-border); color: var(--dv-amber); background: var(--dv-amber-bg); }
+.dv-token.dv-lookahead{ border-color: var(--dv-blue-border);  color: var(--dv-blue);  background: var(--dv-blue-bg); }
+.dv-pos-marker { font-size: 9px; color: var(--dv-text-dim); margin-left: 6px; }
+
+/* ── Call stack ────────────────────────────────────────────────── */
+.dv-call-stack {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 3px;
+  padding: 8px 12px;
+  min-height: 50px;
+  font-size: 11px;
+  background: var(--dv-bg);
+}
+.dv-frame {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  background: var(--dv-bg2);
+  border: 1px solid var(--dv-border);
+  border-radius: 3px;
+  padding: 3px 9px;
+  animation: dv-pop 0.18s ease;
+}
+.dv-frame.dv-top-frame {
+  background: var(--dv-amber-bg);
+  border-color: var(--dv-amber-border);
+}
+.dv-frame-rule { color: var(--dv-amber); font-weight: 600; }
+.dv-frame-pos  { color: var(--dv-text-dim); }
+
+/* ── Layout helpers ────────────────────────────────────────────── */
+.dv-layout-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.dv-layout-main-side { display: grid; grid-template-columns: 1fr 240px; gap: 10px; }
+@media (max-width: 700px) {
+  .dv-layout-2, .dv-layout-main-side { grid-template-columns: 1fr; }
+}
+
+.dv-vstack { display: flex; flex-direction: column; gap: 10px; }
+.dv-body   { padding: 12px 14px; }
+.dv-sep    { height: 1px; background: var(--dv-border); }
